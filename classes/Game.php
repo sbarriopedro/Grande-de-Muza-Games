@@ -40,21 +40,24 @@ class Game{
 
     public function uploadGameFile()
             {
-                // Find a way to upload a folder as an array
                 
                 $gameFileName = $_FILES['gameFile']['name'];
                 $gameRoute = 'games/'.$gameFileName;
+                $gameFolder = 'games/'.pathinfo($gameRoute, PATHINFO_FILENAME).'/index.html';
+                echo($gameFolder);
 
-                if( !mkdir($gameRoute, 0777, true) ){
-                    die('No se pudo crear el directorio con ese nombre');
-                };
-                
                 if( $_FILES['gameFile']['error'] == 0 ){
                     $gameFiletmp = $_FILES['gameFile']['tmp_name'];
                     // upload the file
                     move_uploaded_file($gameFiletmp, $gameRoute);
+                    //extract zip
+                    $zip = new ZipArchive();
+                    if ($zip->open($gameRoute) === TRUE){
+                        $zip->extractTo('games/');
+                        $zip->close();
+                    }
                 }
-            return $gameRoute;
+            return $gameFolder;
             }
 
 

@@ -22,7 +22,7 @@
             <br>
             Subir archivos del juego:
             <br>
-            <input type="file" name="gameFile[]" id="files" multiple directory="" webkitdirectory="" moxdirectory="">
+            <input type="file" name="gameFile">
             <br>
             <br>
             <button class="btn btn-success">

@@ -90,6 +90,52 @@ class Game{
                 return false;
             }
 
+    public function modifyGame()
+            {
+                
+                $gameID = $_POST['gameID'];
+                $gameName = $_POST['gameName'];
+                $gameDesc = $_POST['gameDesc'];
+                $gamePublish = $_POST['gamePublish'];
+                $gameRoute = $_POST['gameRoute'];
+
+                $gameRoute = $this->uploadGameFile();
+
+                $link = Connection::connect();
+                $sql = 'INSERT INTO games (
+                        gameName, gameDesc,
+                        gamePublish,gameRoute)
+                VALUES (:gameName, :gameDesc,
+                        :gamePublish, :gameRoute)
+                WHERE gameID = '.$gameID;
+
+                $stmt = $link->prepare($sql);
+                $stmt->bindParam(":gameName", $gameName, PDO::PARAM_STR);
+                $stmt->bindParam(":gameDesc", $gameDesc, PDO::PARAM_STR);
+                $stmt->bindParam(":gamePublish", $gamePublish, PDO::PARAM_INT);
+                $stmt->bindParam(":gameRoute", $gameRoute, PDO::PARAM_STR);
+
+                if($stmt->execute()){
+                    $this->setGameID($link->lastInsertId());
+                    $this->setGameName($gameName);
+                    $this->setGamePublish($gamePublish);
+                    $this->setGameRoute($gameRoute);
+                    return true;
+                }
+                return false;
+            }
+            
+    public function deleteGame()
+            {
+                $gameID = $_POST['gameID'];
+
+                $link = Connection::connect();
+                $sql = 'DELETE FROM games
+                        WHERE gameID = '.$gameID;
+                    
+                
+            }
+
 
     ////////// GETTERS & SETTERS ////////////
 

@@ -133,7 +133,9 @@ class Game{
                 $sql = 'DELETE FROM games
                         WHERE gameID = '.$gameID;
                     
-                
+                $stmt = $link->prepare($sql);
+                $stmt->execute();
+                return true;
             }
 
 

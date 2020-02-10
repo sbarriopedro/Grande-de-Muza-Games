@@ -16,8 +16,8 @@
             <br>
             Publicar juego?
             <br>
-            <input type="radio" name="gamePublish" value="yes">Si
-            <input type="radio" name="gamePublish" value="no">No
+            <input type="radio" name="gamePublish" value=1>Si
+            <input type="radio" name="gamePublish" value=0>No
             <br>
             <br>
             Subir archivos del juego:

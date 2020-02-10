@@ -13,7 +13,7 @@ class Game{
                 $link = Connection::connect();
                 $sql = 'SELECT gameID,
                                 gameName, gameDesc,
-                                gamePublish,gameRoute,
+                                gamePublish,gameRoute
                         FROM games';
                 $stmt = $link->prepare($sql);
                 $stmt->execute();
@@ -44,7 +44,6 @@ class Game{
                 $gameFileName = $_FILES['gameFile']['name'];
                 $gameRoute = 'games/'.$gameFileName;
                 $gameFolder = 'games/'.pathinfo($gameRoute, PATHINFO_FILENAME).'/index.html';
-                echo($gameFolder);
 
                 if( $_FILES['gameFile']['error'] == 0 ){
                     $gameFiletmp = $_FILES['gameFile']['tmp_name'];

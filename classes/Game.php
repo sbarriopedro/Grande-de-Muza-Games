@@ -82,6 +82,7 @@ class Game{
                 if($stmt->execute()){
                     $this->setGameID($link->lastInsertId());
                     $this->setGameName($gameName);
+                    $this->setGameDesc($gameDesc);
                     $this->setGamePublish($gamePublish);
                     $this->setGameRoute($gameRoute);
                     return true;
@@ -115,8 +116,9 @@ class Game{
                 $stmt->bindParam(":gameRoute", $gameRoute, PDO::PARAM_STR);
 
                 if($stmt->execute()){
-                    $this->setGameID($link->lastInsertId());
+                    $this->setGameID($gameID);
                     $this->setGameName($gameName);
+                    $this->setGameDesc($gameDesc);
                     $this->setGamePublish($gamePublish);
                     $this->setGameRoute($gameRoute);
                     return true;

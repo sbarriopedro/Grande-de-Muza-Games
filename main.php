@@ -28,7 +28,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="padding-bottom: 0px; padding-top: 0px;">
       <div class="container">
         <a class="navbar-brand" href="index">Grande de Muza Games
         <img src='images/logo.png' alt="">
@@ -58,7 +58,7 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner" role="listbox" style="padding-top: 2%;">
         <!-- Slide One - Set the background image for this slide in the line below -->
       
 <?php foreach($gameList as $game){
